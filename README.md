@@ -123,7 +123,22 @@ def run_query(query_statement, sql_connection):
       run_query(query_statement, sql_connection)
       ```
 8. Write a function to log the progress of the code.
-9. While executing the data initialization commands and function calls, maintain appropriate log entries.
+```python
+def log_progress(message):
+    ''' This function logs the mentioned message of a given stage of the
+    code execution to a log file. Function returns nothing'''
+
+    time_stamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    log_entry = f"{time_stamp} : {message}\n"
+    with open("code_log.txt", "a") as log_file:
+        log_file.write(log_entry)
+```
+10. While executing the data initialization commands and function calls, maintain and verify appropriate log entries.
+```python
+with open(log_file, "r") as log:
+    LogContent = log.read()
+    print(LogContent)
+```
 
 ## Setup
 
