@@ -113,6 +113,10 @@ def run_query(query_statement, sql_connection):
       run_query(query_statement, sql_connection)
       ```
     - Extract the information for the Berlin office, that is Name and MC_EUR_Billion
+      ```python
+      query_statement = f"SELECT AVG(MC_GBP_Billion) FROM {table_name}"
+      run_query(query_statement, sql_connection)
+      ```
     - Extract the information for New Delhi office, that is Name and MC_INR_Billion
 8. Write a function to log the progress of the code.
 9. While executing the data initialization commands and function calls, maintain appropriate log entries.
