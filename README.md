@@ -81,6 +81,13 @@ def transform(df, csv_path):
     return df
 ```
 3. Write a function to load the transformed data frame to an output CSV file.
+```python
+def load_to_csv(df, output_path):
+    ''' This function saves the final data frame as a CSV file in
+    the provided path. Function returns nothing.'''
+
+    df.to_csv(output_path)
+```
 4. Write a function to load the transformed data frame to an SQL database server as a table.
 5. Write a function to run queries on the database table.
 6. Run the following queries on the database table:
