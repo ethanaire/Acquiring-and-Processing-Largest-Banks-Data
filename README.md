@@ -59,6 +59,27 @@ def extract(url, table_attribs):
     return df
 ```
 2. Write a function to transform the data frame by adding columns for Market Capitalization in GBP, EUR, and INR, rounded to 2 decimal places, based on the exchange rate information shared as a CSV file.
+```python
+def transform(df, csv_path):
+    ''' This function accesses the CSV file for exchange rate
+    information, and adds three columns to the data frame, each
+    containing the transformed version of Market Cap column to
+    respective currencies'''
+
+    # Read exchange rate CSV file
+    exchange_rate = pd.read_csv(csv_path)
+
+    # Convert to a dictionary with "Currency" as keys and "Rate" as values
+    exchange_rate = exchange_rate.set_index("Currency").to_dict()["Rate"]
+
+    # Add MC_GBP_Billion, MC_EUR_Billion, and MC_INR_Billion
+    # columns to dataframe. Round off to two decimals
+    df["MC_GBP_Billion"] = [np.round(x * exchange_rate["GBP"], 2) for x in df["MC_USD_Billion"]]
+    df["MC_EUR_Billion"] = [np.round(x * exchange_rate["EUR"], 2) for x in df["MC_USD_Billion"]]
+    df["MC_INR_Billion"] = [np.round(x * exchange_rate["INR"], 2) for x in df["MC_USD_Billion"]]
+    
+    return df
+```
 3. Write a function to load the transformed data frame to an output CSV file.
 4. Write a function to load the transformed data frame to an SQL database server as a table.
 5. Write a function to run queries on the database table.
