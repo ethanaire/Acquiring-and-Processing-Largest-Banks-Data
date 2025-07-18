@@ -89,6 +89,13 @@ def load_to_csv(df, output_path):
     df.to_csv(output_path)
 ```
 4. Write a function to load the transformed data frame to an SQL database server as a table.
+```python
+def load_to_db(df, sql_connection, table_name):
+    ''' This function saves the final data frame to a database
+    table with the provided name. Function returns nothing.'''
+
+    df.to_sql(table_name, sql_connection, if_exists='replace', index='False')
+```
 5. Write a function to run queries on the database table.
 6. Run the following queries on the database table:
     - Extract the information for the London office, that is Name and MC_GBP_Billion
