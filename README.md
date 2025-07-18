@@ -97,12 +97,21 @@ def load_to_db(df, sql_connection, table_name):
     df.to_sql(table_name, sql_connection, if_exists='replace', index='False')
 ```
 5. Write a function to run queries on the database table.
-6. Run the following queries on the database table:
+```python
+def run_query(query_statement, sql_connection):
+    ''' This function runs the query on the database table and
+    prints the output on the terminal. Function returns nothing. '''
+
+    print(query_statement)
+    query_ouput = pd.read_sql(query_statement, sql_connection)
+    print(query_ouput)
+```
+7. Run the following queries on the database table:
     - Extract the information for the London office, that is Name and MC_GBP_Billion
     - Extract the information for the Berlin office, that is Name and MC_EUR_Billion
     - Extract the information for New Delhi office, that is Name and MC_INR_Billion
-7. Write a function to log the progress of the code.
-8. While executing the data initialization commands and function calls, maintain appropriate log entries.
+8. Write a function to log the progress of the code.
+9. While executing the data initialization commands and function calls, maintain appropriate log entries.
 
 ## Setup
 
