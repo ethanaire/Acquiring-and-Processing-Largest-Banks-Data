@@ -118,6 +118,10 @@ def run_query(query_statement, sql_connection):
       run_query(query_statement, sql_connection)
       ```
     - Extract the information for New Delhi office, that is Name and MC_INR_Billion
+      ```python
+      query_statement = f"SELECT Name from {table_name} LIMIT 5"
+      run_query(query_statement, sql_connection)
+      ```
 8. Write a function to log the progress of the code.
 9. While executing the data initialization commands and function calls, maintain appropriate log entries.
 
