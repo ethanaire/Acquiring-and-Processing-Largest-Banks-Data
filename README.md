@@ -108,6 +108,10 @@ def run_query(query_statement, sql_connection):
 ```
 7. Run the following queries on the database table:
     - Extract the information for the London office, that is Name and MC_GBP_Billion
+      ```python
+      query_statement = f"SELECT * from {table_name}"
+      run_query(query_statement, sql_connection)
+      ```
     - Extract the information for the Berlin office, that is Name and MC_EUR_Billion
     - Extract the information for New Delhi office, that is Name and MC_INR_Billion
 8. Write a function to log the progress of the code.
